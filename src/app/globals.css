@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+input {
+  caret-shape: block;
+  caret-color: blue;
+}
+
 body {
   font-family: Monaco, Consolas, Lucida Console, monospace;
-}
-a {
-  color: var(--accent);
 }
 @layer base {
   :root {

@@ -1,14 +1,15 @@
-import { data } from "@/data/data";
+import { data } from "@/lib/data";
+import TypingAnimation from "../ui/typing-animation";
 
 export default function ContactInfo() {
   return (
-    <div className="text-yellow-300">
+    <div className="text-terminal-key">
       &#123;
       <br />
       <div className="pl-5">
         <span>
           Email:
-          <a href="mailto:nilay.dev@icloud.com" className="text-accent">
+          <a href={"mailto:" + data.contact_info.email} className="text-accent">
             &quot;
             {data.contact_info.email}
             &quot;
@@ -19,14 +20,14 @@ export default function ContactInfo() {
         {data.contact_info.phone && (
           <span>
             Phone:{" "}
-            <a href="tel:+918167588098" className="text-accent">
+            <a href={"tel:" + data.contact_info.phone} className="text-accent">
               &quot;{data.contact_info.phone}&quot;
             </a>
             ,
             <br />
           </span>
         )}
-        {data.contact_info.linkedin && (
+        {data.contact_info.linkedin.username && (
           <span>
             LinkedIn :
             <a
@@ -41,7 +42,7 @@ export default function ContactInfo() {
             <br />
           </span>
         )}
-        {data.contact_info.github && (
+        {data.contact_info.github.username && (
           <span>
             GitHub :
             <a
@@ -56,7 +57,23 @@ export default function ContactInfo() {
             <br />
           </span>
         )}
+        {data.contact_info.x_twitter.username && (
+          <span>
+            X :
+            <a
+              href={data.contact_info.x_twitter.link}
+              target="_blank"
+              className="text-accent"
+            >
+              &quot;
+              {data.contact_info.x_twitter.username}&quot;
+            </a>
+            ,
+            <br />
+          </span>
+        )}
       </div>
+      &#125;
     </div>
   );
 }

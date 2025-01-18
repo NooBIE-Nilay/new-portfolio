@@ -1,4 +1,4 @@
-import { data } from "@/data/data";
+import { data } from "@/lib/data";
 import { ModeToggle } from "./ModeToggle";
 
 export default function Appbar() {

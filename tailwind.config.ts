@@ -29,10 +29,16 @@ export default {
         },
       },
       animation: {
-        blink: "blink 1s infinite",
+        blink: "blink 900ms infinite",
       },
       colors: {
         primary: "#1e3a8a",
+        terminal: {
+          DEFAULT: "#1b1d30",
+          window: "#1b1d30",
+          header: "#e4e3e5",
+          key: "#e7d184",
+        },
         accent: { DEFAULT: "#3b82f6", hover: "#1d4ed8" },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
