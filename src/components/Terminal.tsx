@@ -18,7 +18,10 @@ export default function Terminal() {
         <div className="header-button red border-[#fdbc3d] w-3 h-3 rounded-full ml-2 border-1 border-solid broder-1 bg-[#ffb524]"></div>
         <div className="header-button red bg-[#33c948] w-3 h-3 rounded-full ml-2 border-1 border-solid border-[#2dbb41]"></div>
       </div>
-      <div className="terminal-window bg-terminal rounded-b-md  p-9 text-white">
+      <div
+        className="terminal-window bg-terminal rounded-b-md  p-9 text-white min-h-[400px]
+       "
+      >
         <br />
         <RenderCommands inputRef={inputRef} />
       </div>

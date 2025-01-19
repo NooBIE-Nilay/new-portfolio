@@ -1,3 +1,5 @@
+"use client ";
+import { useState, RefObject } from "react";
 import { data } from "@/lib/data";
 import ContactInfo from "./TerminalCommands/ContactInfo";
 import Education from "./TerminalCommands/Education";
@@ -5,19 +7,26 @@ import Interests from "./TerminalCommands/Interests";
 import Location from "./TerminalCommands/Location";
 import Resume from "./TerminalCommands/Resume";
 import Skills from "./TerminalCommands/Skills";
-import { useState, RefObject } from "react";
+import Help from "./TerminalCommands/Help";
 
 interface RenderCommandsProps {
   inputRef: RefObject<null>;
 }
 
 export default function RenderCommands({ inputRef }: RenderCommandsProps) {
-  function handleCommand() {
-    setCurrentCommands((currentCommands) => [
-      ...currentCommands.slice(1),
-      command,
-    ]);
-    console.log(currentCommands);
+  const [currentCommands, setCurrentCommands] = useState([
+    "help",
+    "skills",
+    "resume",
+  ]);
+  const [isFocused, setIsFocused] = useState(true);
+  const [command, setCommand] = useState("");
+  function handleCommand(cmd: string) {
+    setCurrentCommands((currentCommands) => {
+      return currentCommands.length >= 4
+        ? [...currentCommands.slice(1), cmd]
+        : [...currentCommands, cmd];
+    });
     setCommand("");
   }
 
@@ -28,16 +37,12 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
     resume: <Resume />,
     education: <Education />,
     interests: <Interests />,
-    help: <div></div>,
+    help: <Help />,
   };
-  const [currentCommands, setCurrentCommands] = useState([
-    "skills",
-    "resume",
-    "currentLocation",
-    "interests",
-  ]);
-  const [isFocused, setIsFocused] = useState(true);
-  const [command, setCommand] = useState("");
+  const terminalCommandKeys = Object.keys(TerminalCommands).filter(
+    (key) => key !== "help"
+  );
+
   return (
     <div>
       {currentCommands.map((cmd, index) => {
@@ -45,11 +50,23 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
           <div key={index}>
             {
               <div>
-                &gt; {data.first_name}.{cmd}
-                {
+                &gt;{" "}
+                {terminalCommandKeys.includes(cmd)
+                  ? data.first_name + "." + cmd
+                  : cmd}
+                {Object.keys(TerminalCommands).includes(cmd) ? (
                   //@ts-ignore
                   TerminalCommands[cmd]
-                }
+                ) : cmd === "clear" ? (
+                  <></>
+                ) : (
+                  <div className="text-red-500">
+                    Command Not Valid
+                    <br /> Use Any Of The Below Commands
+                    <br />
+                    {TerminalCommands["help"]}
+                  </div>
+                )}
                 <br />
               </div>
             }
@@ -68,7 +85,12 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
           autoFocus
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              handleCommand();
+              let temp = command;
+              if (command.startsWith("Nilay.")) temp = command.substring(6);
+              if (command === "clear") {
+                setCurrentCommands(["clear"]);
+                setCommand("");
+              } else handleCommand(temp);
             }
           }}
           onFocus={(e) => setIsFocused(true)}
