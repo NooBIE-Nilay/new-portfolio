@@ -1,4 +1,4 @@
-import { data } from "@/lib/data";
+import { data } from "@/data/data";
 import TypingAnimation from "./ui/typing-animation";
 
 export default function Hero() {
@@ -16,7 +16,11 @@ export default function Hero() {
         <br />
         <br />
         Hire Me, Check out my
-        <a className="text-accent font-semibold" href="#resume">
+        <a
+          className="text-accent font-semibold"
+          href={data.resume.link}
+          target="_blank"
+        >
           {" "}
           Resume
         </a>

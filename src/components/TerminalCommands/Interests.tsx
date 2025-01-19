@@ -1,4 +1,4 @@
-import { data } from "@/lib/data";
+import { data } from "@/data/data";
 
 export default function Interests() {
   return (

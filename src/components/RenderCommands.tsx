@@ -1,6 +1,6 @@
 "use client ";
-import { useState, RefObject } from "react";
-import { data } from "@/lib/data";
+import { useState, RefObject, useRef } from "react";
+import { data } from "@/data/data";
 import ContactInfo from "./TerminalCommands/ContactInfo";
 import Education from "./TerminalCommands/Education";
 import Interests from "./TerminalCommands/Interests";
@@ -21,12 +21,15 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
   ]);
   const [isFocused, setIsFocused] = useState(true);
   const [command, setCommand] = useState("");
+  // const divElement =
+  // document.getElementById("terminal-window") || new HTMLDivElement();
   function handleCommand(cmd: string) {
     setCurrentCommands((currentCommands) => {
       return currentCommands.length >= 4
         ? [...currentCommands.slice(1), cmd]
         : [...currentCommands, cmd];
     });
+    // divElement.scroll = divElement?.scrollHeight;
     setCommand("");
   }
 
@@ -44,7 +47,10 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
   );
 
   return (
-    <div>
+    <div
+      className="terminal-window bg-terminal rounded-b-md  px-9 py-4  text-white h-[550px] overflow-auto"
+      id="terminal-window"
+    >
       {currentCommands.map((cmd, index) => {
         return (
           <div key={index}>
@@ -89,6 +95,9 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
               if (command.startsWith("Nilay.")) temp = command.substring(6);
               if (command === "clear") {
                 setCurrentCommands(["clear"]);
+                setCommand("");
+              } else if (command === "noob") {
+                setCurrentCommands(["help", "resume", "skills"]);
                 setCommand("");
               } else handleCommand(temp);
             }

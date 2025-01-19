@@ -1,4 +1,4 @@
-import { data } from "@/lib/data";
+import { data } from "@/data/data";
 import TypingAnimation from "../ui/typing-animation";
 
 export default function ContactInfo() {

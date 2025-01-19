@@ -23,7 +23,7 @@ export const data = {
   },
   resume: {
     title: "resume.pdf",
-    link: "resume.nilaycodes.in",
+    link: "https://resume.nilaycodes.in",
   },
   interests: [
     "Coding",

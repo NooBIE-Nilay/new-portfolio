@@ -6,7 +6,9 @@ input {
   caret-shape: block;
   caret-color: blue;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: Monaco, Consolas, Lucida Console, monospace;
 }

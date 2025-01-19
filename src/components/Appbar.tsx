@@ -1,5 +1,7 @@
-import { data } from "@/lib/data";
+import { data } from "@/data/data";
 import { ModeToggle } from "./ModeToggle";
+import Link from "next/link";
+import Contact from "./Contact";
 
 export default function Appbar() {
   return (
@@ -10,9 +12,18 @@ export default function Appbar() {
           <span className="text-accent text-4xl ">.</span>
         </h1>
       </div>
-      <div className="flex justify-between gap-14 items-center">
-        <div className=" font-semibold hover:text-accent">Projects</div>
-        <div className=" font-semibold hover:text-accent">Contact</div>
+      <div className="flex justify-between gap-10 items-center">
+        <Link
+          className=" text-base hover:text-accent "
+          href={data.contact_info.github.link}
+          target="_blank"
+        >
+          GitHub
+        </Link>
+        <a className=" text-base hover:text-accent " href={"#projects"}>
+          Projects
+        </a>
+        <Contact />
         <ModeToggle />
       </div>
     </header>
