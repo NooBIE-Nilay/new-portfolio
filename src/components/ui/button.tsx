@@ -9,6 +9,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        custom:
+          "capitalize bg-accent text-white hover:bg-cyan-300 hover:text-black shadow",
         default:
           "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive:

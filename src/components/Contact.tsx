@@ -190,6 +190,7 @@ export default function () {
           </div>
           <DialogFooter>
             <Button
+              variant={"custom"}
               type="submit"
               className="capitalize bg-accent text-white hover:bg-cyan-300 hover:text-black"
               onClick={sendMessage}

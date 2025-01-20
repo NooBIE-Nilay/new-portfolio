@@ -92,6 +92,7 @@ export default function TwistTacToe() {
 
             <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
               <Button
+                variant={"custom"}
                 className="mt-[1.6rem] bg-[#3b82f6]"
                 onClick={() => {
                   window.open("https://xo.nilaycodes.in/", "_target");
