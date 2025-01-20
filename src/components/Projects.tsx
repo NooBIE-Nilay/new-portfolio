@@ -2,7 +2,6 @@ import { ProjectDetails } from "@/data/projectData";
 import { Card, Carousel } from "./ui/apple-cards-carousel";
 
 export default function Projects() {
-  //TODO: Add Project Deatils
   const cards = ProjectDetails.map((card, index) => (
     <Card key={card.src.toString().substring(1, 4)} card={card} index={index} />
   ));

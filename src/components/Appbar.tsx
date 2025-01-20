@@ -4,13 +4,7 @@ import Link from "next/link";
 import Contact from "./Contact";
 import { Button } from "./ui/button";
 
-import { RefObject } from "react";
-
-interface AppbarProps {
-  projectRef: RefObject<HTMLElement | null>;
-}
-
-export default function Appbar({ projectRef }: AppbarProps) {
+export default function Appbar() {
   return (
     <header className="appbar-container flex justify-between  items-center py-10 ">
       <div>
@@ -23,17 +17,14 @@ export default function Appbar({ projectRef }: AppbarProps) {
         <Link
           className=" text-base hover:text-accent "
           href={data.contact_info.github.link}
-          target="_blank"
         >
           GitHub
         </Link>
-        <Button
-          className=" hover:bg-transparent hover:text-accent"
-          variant={"ghost"}
-          onClick={() => projectRef.current?.scrollIntoView()}
-        >
+
+        <a className=" hover:bg-transparent hover:text-accent" href="#projects">
           Projects
-        </Button>
+        </a>
+
         <Contact />
         <ModeToggle />
       </div>

@@ -25,6 +25,13 @@ export default function Hero() {
           Resume
         </a>
         .
+        <br />
+        Or Check Out My
+        <a className="text-accent font-semibold" href="#projects">
+          {" "}
+          Projects
+        </a>{" "}
+        below.
       </div>
     </div>
   );

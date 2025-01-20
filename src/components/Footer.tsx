@@ -13,7 +13,6 @@ export default function Footer() {
           <Link
             className=" text-base hover:text-accent "
             href={data.contact_info.linkedin.link}
-            target="_blank"
           >
             LinkedIn
           </Link>
@@ -23,7 +22,6 @@ export default function Footer() {
           <Link
             className=" text-base hover:text-accent "
             href={data.contact_info.github.link}
-            target="_blank"
           >
             GitHub
           </Link>

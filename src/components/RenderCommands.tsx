@@ -36,7 +36,7 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
   const TerminalCommands = {
     skills: <Skills />,
     contactInfo: <ContactInfo />,
-    currentLocation: <Location />,
+    location: <Location />,
     resume: <Resume />,
     education: <Education />,
     interests: <Interests />,
@@ -88,7 +88,6 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
           style={{ width: `${command.length * 9.8}px` }}
           value={command}
           onChange={(e) => setCommand(e.target.value)}
-          autoFocus
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               let temp = command;

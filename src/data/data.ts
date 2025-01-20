@@ -31,9 +31,10 @@ export const data = {
     "Valorant",
     "Teaching",
     "Exploring System Designs",
+    "Exploring Large Scale Systems",
   ],
   education:
-    "B.Tech. Computer Science & Systems Enginerring - KIIT Deemed to be University, Bhubaneswar",
+    "B.Tech. Computer Science & Systems Engineering - KIIT Deemed to be University, Bhubaneswar",
   skills: [
     "React.js",
     "Next.js",
