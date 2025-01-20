@@ -11,16 +11,15 @@ import {
   IconArrowNarrowLeft,
   IconArrowNarrowRight,
   IconBrandGithub,
-  IconLink,
   IconX,
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps, StaticImageData } from "next/image";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import x_o from "@/assets/o_x.gif";
 import { Button } from "./button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { data } from "@/data/data";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -35,6 +34,7 @@ export type CardType = {
   github_link?: string;
   live_link?: string;
   noHeading?: Boolean;
+  skills: string[];
 };
 
 export const CarouselContext = createContext<{
@@ -255,7 +255,7 @@ export const Card = ({
           onClick={handleOpen}
         >
           <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
-          <div className="relative z-40 p-8">
+          <div className="relative z-40 p-4">
             <motion.p
               layoutId={layout ? `category-${card.category}` : undefined}
               className="text-white text-sm md:text-base font-medium font-sans text-left"
@@ -264,16 +264,32 @@ export const Card = ({
             </motion.p>
             <motion.p
               layoutId={layout ? `title-${card.title}` : undefined}
-              className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
+              className="text-white text-xl md:text-2xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-1"
             >
               {card.title}
             </motion.p>
+            <motion.div
+              layoutId={layout ? `title-${card.title}` : undefined}
+              className="text-white text-xl md:text-2xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-1 flex-wrap flex gap-1"
+            >
+              {card.skills.map((skill, index) => {
+                return (
+                  <div
+                    key={`skill${index}`}
+                    className="bg-accent rounded-lg px-2 text-[10px] h-7"
+                  >
+                    {skill}
+                  </div>
+                );
+              })}
+            </motion.div>
           </div>
           <BlurImage
             src={card.src}
             alt={card.title}
-            // fill
-            className="object-cover absolute z-10 inset-0 py-[40%]"
+            height={384}
+            width={384}
+            className="overflow-clip absolute z-10 inset-0 py-[40%]"
           />
         </motion.div>
         <div className="absolute inset-0 object-cover top-auto flex items-center justify-center gap-5 mb-7 z-50">

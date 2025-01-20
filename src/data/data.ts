@@ -46,4 +46,29 @@ export const data = {
     "Github",
     "NGINX",
   ],
+  project_links: {
+    twist_tac_toe: {
+      github: "https://github.com/NooBIE-Nilay/twist-tac-toe",
+      live: "https://xo.nilaycodes.in/",
+      stack: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "Socket.io",
+        "TailwindCSS",
+        "Web Sockets",
+      ],
+    },
+    old_portfolio: {
+      github: "https://github.com/NooBIE-Nilay/nilay-portfolio",
+      live: "https://nilaycodes.in/",
+      stack: [
+        "Next.Js",
+        "React.Js",
+        "TailwindCSS",
+        "NodeMailer",
+        "Framer Motion",
+      ],
+    },
+  },
 };

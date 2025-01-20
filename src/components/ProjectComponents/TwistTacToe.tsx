@@ -8,6 +8,9 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip";
 import x_o from "@/assets/o_x.gif";
+import { data } from "@/data/data";
+import Contact from "../Contact";
+import Link from "next/link";
 export default function TwistTacToe() {
   return (
     <div>
@@ -80,7 +83,7 @@ export default function TwistTacToe() {
                   -&gt; 100%{" "}
                   <a
                     className="font-semibold text-accent"
-                    href="https://github.com/NooBIE-Nilay/twist-tac-toe"
+                    href={data.project_links.twist_tac_toe.github}
                     target="_blank"
                   >
                     open-source
@@ -95,7 +98,7 @@ export default function TwistTacToe() {
                 variant={"custom"}
                 className="mt-[1.6rem] bg-[#3b82f6]"
                 onClick={() => {
-                  window.open("https://xo.nilaycodes.in/", "_target");
+                  window.open(data.project_links.twist_tac_toe.live, "_target");
                 }}
               >
                 Play Now
@@ -121,11 +124,11 @@ export default function TwistTacToe() {
                   Button, or go to
                   <a
                     className="text-accent"
-                    href="https://xo.nilaycodes.in"
+                    href={data.project_links.twist_tac_toe.live}
                     target="_blank"
                   >
                     {" "}
-                    https://xo.nilaycodes.in
+                    {data.project_links.twist_tac_toe.live}{" "}
                   </a>
                 </p>
                 <p>
@@ -153,6 +156,26 @@ export default function TwistTacToe() {
                   </span>
                 </p>
               </div>
+            </div>
+          </div>
+          <div className="footer flex flex-col justify-center items-center p-10">
+            <div className="h-[1px] w-full bg-foreground "></div>
+            <div className="text-white text-xl md:text-2xl font-semibold m-2 flex-wrap flex gap-3 justify-center mt-8">
+              {data.project_links.twist_tac_toe.stack.map((skill, index) => {
+                return (
+                  <div
+                    key={`skill${index}`}
+                    className="bg-accent rounded-lg px-2 text-sm h-9 flex justify-center items-center "
+                  >
+                    {skill}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="pt-8 text-sm text-center">
+              Made with <a href="https://nextjs.org/">Next.js</a> & &#128153; by
+              Nilay Banerjee.
             </div>
           </div>
         </div>
