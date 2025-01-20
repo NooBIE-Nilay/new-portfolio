@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="footer flex flex-col justify-center items-center">
       <div className="h-[1px] w-full bg-foreground"></div>
-      <div className="flex justify-center items-center gap-5 p-12 text-lg">
+      <div className="flex justify-center items-center gap-5 p-8 text-lg">
         <Contact />
         <div>||</div>
         <div>
@@ -29,7 +29,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <div className="py-10 text-sm text-center">
+      <div className="pb-10 text-sm text-center">
         Made with <a href="https://nextjs.org/">Next.js</a> & &#128153; by Nilay
         Banerjee.
         <br />

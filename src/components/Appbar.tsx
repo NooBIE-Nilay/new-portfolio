@@ -2,8 +2,15 @@ import { data } from "@/data/data";
 import { ModeToggle } from "./ModeToggle";
 import Link from "next/link";
 import Contact from "./Contact";
+import { Button } from "./ui/button";
 
-export default function Appbar() {
+import { RefObject } from "react";
+
+interface AppbarProps {
+  projectRef: RefObject<HTMLElement | null>;
+}
+
+export default function Appbar({ projectRef }: AppbarProps) {
   return (
     <header className="appbar-container flex justify-between  items-center py-10 ">
       <div>
@@ -20,9 +27,13 @@ export default function Appbar() {
         >
           GitHub
         </Link>
-        <a className=" text-base hover:text-accent " href={"#projects"}>
+        <Button
+          className=" hover:bg-transparent hover:text-accent"
+          variant={"ghost"}
+          onClick={() => projectRef.current?.scrollIntoView()}
+        >
           Projects
-        </a>
+        </Button>
         <Contact />
         <ModeToggle />
       </div>
