@@ -2,18 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-input {
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+/* input {
   caret-shape: block;
   caret-color: blue;
-}
+} */
 html {
   scroll-behavior: smooth;
 }
 body {
+  -ms-overflow-style: none;
   font-family: Monaco, Consolas, Lucida Console, monospace;
 }
 @layer base {
   :root {
+    --primary: 27 29% 48%;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -41,6 +52,7 @@ body {
     --radius: 0.5rem;
   }
   .dark {
+    --primary: 245 245% 257%;
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;

@@ -17,6 +17,7 @@ export default function Home() {
           <Projects />
         </section>
         <Footer />
+        <a href="#home"></a>
       </section>
     </div>
   );

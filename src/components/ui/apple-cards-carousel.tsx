@@ -10,23 +10,31 @@ import React, {
 import {
   IconArrowNarrowLeft,
   IconArrowNarrowRight,
+  IconBrandGithub,
+  IconLink,
   IconX,
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import Image, { ImageProps } from "next/image";
+import Image, { ImageProps, StaticImageData } from "next/image";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import x_o from "@/assets/o_x.gif";
+import { Button } from "./button";
+import { ExternalLink, Github } from "lucide-react";
 
 interface CarouselProps {
   items: JSX.Element[];
   initialScroll?: number;
 }
 
-type Card = {
-  src: string;
+export type CardType = {
+  src: string | StaticImageData;
   title: string;
   category: string;
   content: React.ReactNode;
+  github_link?: string;
+  live_link?: string;
+  noHeading?: Boolean;
 };
 
 export const CarouselContext = createContext<{
@@ -159,7 +167,7 @@ export const Card = ({
   index,
   layout = false,
 }: {
-  card: Card;
+  card: CardType;
   index: number;
   layout?: boolean;
 }) => {
@@ -220,50 +228,81 @@ export const Card = ({
               >
                 <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
               </button>
-              <motion.p
-                layoutId={layout ? `category-${card.title}` : undefined}
-                className="text-base font-medium text-black dark:text-white"
-              >
-                {card.category}
-              </motion.p>
-              <motion.p
-                layoutId={layout ? `title-${card.title}` : undefined}
-                className="text-2xl md:text-5xl font-semibold text-neutral-700 mt-4 dark:text-white"
-              >
-                {card.title}
-              </motion.p>
+              {card.noHeading && (
+                <div>
+                  <motion.p
+                    layoutId={layout ? `category-${card.title}` : undefined}
+                    className="text-base font-medium text-black dark:text-white"
+                  >
+                    {card.category}
+                  </motion.p>
+                  <motion.p
+                    layoutId={layout ? `title-${card.title}` : undefined}
+                    className="text-2xl md:text-5xl font-semibold text-neutral-700 mt-4 dark:text-white"
+                  >
+                    {card.title}
+                  </motion.p>
+                </div>
+              )}
               <div className="py-10">{card.content}</div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
-      <motion.button
-        layoutId={layout ? `card-${card.title}` : undefined}
-        onClick={handleOpen}
-        className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
-      >
-        <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
-        <div className="relative z-40 p-8">
-          <motion.p
-            layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-white text-sm md:text-base font-medium font-sans text-left"
-          >
-            {card.category}
-          </motion.p>
-          <motion.p
-            layoutId={layout ? `title-${card.title}` : undefined}
-            className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
-          >
-            {card.title}
-          </motion.p>
+      <div className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10">
+        <motion.div
+          layoutId={layout ? `card-${card.title}` : undefined}
+          onClick={handleOpen}
+        >
+          <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
+          <div className="relative z-40 p-8">
+            <motion.p
+              layoutId={layout ? `category-${card.category}` : undefined}
+              className="text-white text-sm md:text-base font-medium font-sans text-left"
+            >
+              {card.category}
+            </motion.p>
+            <motion.p
+              layoutId={layout ? `title-${card.title}` : undefined}
+              className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
+            >
+              {card.title}
+            </motion.p>
+          </div>
+          <BlurImage
+            src={card.src}
+            alt={card.title}
+            // fill
+            className="object-cover absolute z-10 inset-0 py-[40%]"
+          />
+        </motion.div>
+        <div className="absolute inset-0 object-cover top-auto flex items-center justify-center gap-5 mb-7 z-50">
+          {card.github_link && (
+            <Button
+              size={"cardButton"}
+              variant={"outline"}
+              onClick={(e) => {
+                e.preventDefault();
+                window.open(card.github_link, "_blank");
+              }}
+            >
+              <IconBrandGithub />
+            </Button>
+          )}
+          {card.live_link && (
+            <Button
+              size={"cardButton"}
+              variant={"outline"}
+              onClick={(e) => {
+                e.preventDefault();
+                window.open(card.live_link, "_blank");
+              }}
+            >
+              <ExternalLink />
+            </Button>
+          )}
         </div>
-        <BlurImage
-          src={card.src}
-          alt={card.title}
-          fill
-          className="object-cover absolute z-10 inset-0"
-        />
-      </motion.button>
+      </div>
     </>
   );
 };
