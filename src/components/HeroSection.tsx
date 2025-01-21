@@ -9,7 +9,6 @@ export default function Hero() {
         <TypingAnimation duration={75} className="text-6xl ">
           {data.name}
         </TypingAnimation>
-        <span className=" bg-accent animate-blink">&nbsp;</span>
       </div>
       <div className="hero-description  text-justify text-pretify text-lg">
         {data.description}

@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/select";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Textarea } from "./ui/textarea";
 import { toast } from "react-toastify";
 
@@ -41,14 +41,21 @@ function validateEmail(email: string) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailPattern.test(email);
 }
-function checkValidEmail(email: string): Boolean {
+function checkValidEmail(email: string): boolean {
   if (email.length <= 0) return false;
   if (email.length > 25) return false;
 
   if (!validateEmail(email)) return false;
   return true;
 }
-export default function () {
+export default function Contact({
+  dialogTriggger,
+}: {
+  dialogTriggger?: {
+    isOpen: boolean;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  };
+}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -98,6 +105,7 @@ export default function () {
       if (data.status === 200) {
         toast.dismiss();
         toast.success("Email Sent Successfully 🎉");
+        dialogTriggger && dialogTriggger.setIsOpen(false);
         return;
       } else {
         toast.dismiss();
@@ -109,15 +117,20 @@ export default function () {
   };
   return (
     <div className="-mx-2">
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button
-            className="bg-background hover:bg-background text-base hover:text-accent"
-            variant={"ghost"}
-          >
-            Contact
-          </Button>
-        </DialogTrigger>
+      <Dialog
+        open={dialogTriggger?.isOpen}
+        onOpenChange={dialogTriggger?.setIsOpen}
+      >
+        {!dialogTriggger && (
+          <DialogTrigger asChild>
+            <Button
+              className="bg-background hover:bg-background text-base hover:text-accent"
+              variant={"ghost"}
+            >
+              Contact
+            </Button>
+          </DialogTrigger>
+        )}
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Let's Work Together</DialogTitle>

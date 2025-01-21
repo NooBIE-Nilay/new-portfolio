@@ -27,7 +27,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <div className="pb-10 text-sm text-center">
+      <div className="pb-10 mb-20 md:mb-0 text-sm text-center ">
         Made with <a href="https://nextjs.org/">Next.js</a> & &#128153; by Nilay
         Banerjee.
         <br />
