@@ -53,7 +53,7 @@ export default function Appbar() {
         </div>
       </header>
       <header className="appbar-container-web  md:hidden flex items-center justify-center">
-        <h1 className="  text-3xl font-semibold py-8">
+        <h1 className="  text-3xl font-semibold pt-8">
           {data.alias}
           <span className="text-accent text-4xl ">.</span>
         </h1>
