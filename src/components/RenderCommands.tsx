@@ -37,7 +37,7 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
   }, [currentCommands]);
   const TerminalCommands = {
     skills: <Skills />,
-    contactInfo: <ContactInfo />,
+    contact: <ContactInfo />,
     location: <Location />,
     resume: <Resume />,
     education: <Education />,
@@ -79,14 +79,19 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
         );
       })}
 
-      <div className="input-field flex w-auto">
+      <div className="input-field flex w-auto items-center">
         &gt;
         <input
           ref={inputRef}
           className={`bg-terminal text-white  caret-terminal  outline-none border-none focus:outline-none focus:ring-0 ml-2`}
-          style={{ width: `${command.length * 9.8}px` }}
+          style={{
+            width: `${Math.max(command.length * 9.8, 10)}px`,
+            direction: "ltr",
+            textAlign: "left",
+            unicodeBidi: "plaintext",
+          }}
           value={command}
-          onChange={(e) => setCommand(e.target.value)}
+          onChange={(e) => setCommand(e.target.value.trim())}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               let temp = command;
@@ -102,8 +107,13 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
           }}
           onFocus={(e) => setIsFocused(true)}
           onBlur={(e) => setIsFocused(false)}
+          inputMode="text"
+          autoCapitalize="off"
+          dir="ltr"
         />
-        <i className={`bg-white/80 ${isFocused && "animate-blink"} w-3 `}></i>
+        <span
+          className={`bg-white/80 ${isFocused && "animate-blink"}  w-3 h-5`}
+        ></span>
       </div>
     </div>
   );

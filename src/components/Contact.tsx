@@ -208,7 +208,7 @@ export default function Contact({
               className="capitalize bg-accent text-white hover:bg-cyan-300 hover:text-black"
               onClick={sendMessage}
             >
-              Save Changes
+              Send Mail
             </Button>
           </DialogFooter>
         </DialogContent>
