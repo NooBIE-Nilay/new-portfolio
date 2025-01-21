@@ -1,6 +1,6 @@
 import TwistTacToe from "@/components/ProjectComponents/TwistTacToe";
 import x_o from "@/assets/o_x.gif";
-import portfolio from "@/assets/portfolio.gif";
+import old_portfolio from "@/assets/portfolio.gif";
 import { CardType } from "@/components/ui/apple-cards-carousel";
 import OldPortfolio from "@/components/ProjectComponents/OldPortfolio";
 import { data } from "./data";
@@ -17,7 +17,7 @@ export const ProjectDetails: CardType[] = [
   {
     category: "Frontend",
     title: "Portfolio Website [Old]",
-    src: portfolio,
+    src: old_portfolio,
     content: <OldPortfolio />,
     github_link: data.project_links.old_portfolio.github,
     live_link: data.project_links.old_portfolio.live,

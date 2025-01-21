@@ -9,8 +9,6 @@ import {
 } from "../ui/tooltip";
 import x_o from "@/assets/o_x.gif";
 import { data } from "@/data/data";
-import Contact from "../Contact";
-import Link from "next/link";
 export default function TwistTacToe() {
   return (
     <div>
@@ -106,6 +104,7 @@ export default function TwistTacToe() {
             </BoxReveal>
           </div>
           <Image
+            unoptimized
             src={x_o}
             alt="Twist Tac Toe"
             height="500"

@@ -285,6 +285,7 @@ export const Card = ({
             </motion.div>
           </div>
           <BlurImage
+            unoptimized
             src={card.src}
             alt={card.title}
             height={384}

@@ -1,5 +1,5 @@
 "use client ";
-import { useState, RefObject, useRef } from "react";
+import { useState, RefObject, useRef, useEffect } from "react";
 import { data } from "@/data/data";
 import ContactInfo from "./TerminalCommands/ContactInfo";
 import Education from "./TerminalCommands/Education";
@@ -14,25 +14,27 @@ interface RenderCommandsProps {
 }
 
 export default function RenderCommands({ inputRef }: RenderCommandsProps) {
+  const terminalWindowRef = useRef<HTMLDivElement>(null);
   const [currentCommands, setCurrentCommands] = useState([
     "help",
     "skills",
     "resume",
   ]);
-  const [isFocused, setIsFocused] = useState(true);
+  const [isFocused, setIsFocused] = useState(false);
   const [command, setCommand] = useState("");
-  // const divElement =
-  // document.getElementById("terminal-window") || new HTMLDivElement();
   function handleCommand(cmd: string) {
     setCurrentCommands((currentCommands) => {
-      return currentCommands.length >= 4
-        ? [...currentCommands.slice(1), cmd]
-        : [...currentCommands, cmd];
+      return [...currentCommands, cmd];
     });
-    // divElement.scroll = divElement?.scrollHeight;
     setCommand("");
   }
-
+  useEffect(() => {
+    if (terminalWindowRef.current) {
+      //@ts-ignore
+      terminalWindowRef.current.scrollTop =
+        terminalWindowRef.current.scrollHeight;
+    }
+  }, [currentCommands]);
   const TerminalCommands = {
     skills: <Skills />,
     contactInfo: <ContactInfo />,
@@ -48,34 +50,31 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
 
   return (
     <div
-      className="terminal-window bg-terminal rounded-b-md  px-9 py-4  text-white h-[550px] overflow-auto"
+      className="terminal-window bg-terminal rounded-b-md  px-9 py-4  text-white h-[550px] overflow-auto "
+      ref={terminalWindowRef}
       id="terminal-window"
     >
       {currentCommands.map((cmd, index) => {
         return (
           <div key={index}>
-            {
-              <div>
-                &gt;{" "}
-                {terminalCommandKeys.includes(cmd)
-                  ? data.first_name + "." + cmd
-                  : cmd}
-                {Object.keys(TerminalCommands).includes(cmd) ? (
-                  //@ts-ignore
-                  TerminalCommands[cmd]
-                ) : cmd === "clear" ? (
-                  <></>
-                ) : (
-                  <div className="text-red-500">
-                    Command Not Valid
-                    <br /> Use Any Of The Below Commands
-                    <br />
-                    {TerminalCommands["help"]}
-                  </div>
-                )}
+            &gt;{" "}
+            {terminalCommandKeys.includes(cmd)
+              ? data.first_name + "." + cmd
+              : cmd}
+            {Object.keys(TerminalCommands).includes(cmd) ? (
+              //@ts-ignore
+              TerminalCommands[cmd]
+            ) : cmd === "clear" ? (
+              <></>
+            ) : (
+              <div className="text-red-500">
+                Command Not Valid
+                <br /> Use Any Of The Below Commands
                 <br />
+                {TerminalCommands["help"]}
               </div>
-            }
+            )}
+            <br />
           </div>
         );
       })}

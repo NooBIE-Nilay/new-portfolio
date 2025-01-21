@@ -71,6 +71,7 @@ export default function OldPortfolio() {
           </BoxReveal>
         </div>
         <Image
+          unoptimized
           src={old_portfolio}
           alt="old_portfolio"
           height="500"

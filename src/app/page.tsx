@@ -13,7 +13,6 @@ export default function Home() {
     <>
       <div className="max-w-[1000px] my-0 mx-auto py-0 px-[40px] ">
         <Appbar />
-        {/* //TODO: Make the Page Responsive */}
         <Hero />
         <Terminal />
         <section id="projects">
