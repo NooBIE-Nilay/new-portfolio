@@ -34,6 +34,22 @@ export default function OldPortfolio() {
             </h2>
           </BoxReveal>
           <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
+            <div className="h-[1px] w-full bg-foreground mt-1"></div>
+            <div className="text-white text-xl md:text-2xl font-semibold  flex-wrap flex gap-2 justify-center my-2 md:hidden ">
+              {data.project_links.old_portfolio.stack.map((skill, index) => {
+                return (
+                  <div
+                    key={`skill${index}`}
+                    className="bg-accent rounded-lg px-2 text-sm h-9 flex justify-center items-center "
+                  >
+                    {skill}
+                  </div>
+                );
+              })}
+              <div className="h-[1px] w-full bg-foreground "></div>
+            </div>
+          </BoxReveal>
+          <BoxReveal boxColor={"#3b82f6"} duration={0.5}>
             <div className="mt-6 flex flex-col gap-3">
               <p>
                 🚀 Built with Next.js & TypeScript – Ensures fast performance,
@@ -76,12 +92,12 @@ export default function OldPortfolio() {
           alt="old_portfolio"
           height="500"
           width="500"
-          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-2xl"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-2xl mt-6"
         />
       </div>
       <div className="footer flex flex-col justify-center items-center p-10">
         <div className="h-[1px] w-full bg-foreground "></div>
-        <div className="text-white text-xl md:text-2xl font-semibold m-2 flex-wrap flex gap-3 justify-center mt-8">
+        <div className="text-white text-xl md:text-2xl font-semibold m-2 flex-wrap md:flex gap-3 justify-center mt-8 hidden">
           {data.project_links.old_portfolio.stack.map((skill, index) => {
             return (
               <div

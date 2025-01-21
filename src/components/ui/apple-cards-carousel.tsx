@@ -19,7 +19,6 @@ import Image, { ImageProps, StaticImageData } from "next/image";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { Button } from "./button";
 import { ExternalLink } from "lucide-react";
-import { data } from "@/data/data";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -270,7 +269,7 @@ export const Card = ({
             </motion.p>
             <motion.div
               layoutId={layout ? `title-${card.title}` : undefined}
-              className="text-white text-xl md:text-2xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-1 flex-wrap flex gap-1"
+              className="text-white text-xl md:text-2xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-1 flex-wrap md:flex gap-1 hidden"
             >
               {card.skills.map((skill, index) => {
                 return (
