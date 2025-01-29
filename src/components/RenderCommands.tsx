@@ -105,8 +105,8 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
               } else handleCommand(temp);
             }
           }}
-          onFocus={(e) => setIsFocused(true)}
-          onBlur={(e) => setIsFocused(false)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           inputMode="text"
           autoCapitalize="off"
           dir="ltr"

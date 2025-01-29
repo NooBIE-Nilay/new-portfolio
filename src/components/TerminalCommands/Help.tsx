@@ -3,13 +3,13 @@ export default function Help() {
     <div className="text-terminal-key">
       &#123;
       <div className="ml-4">
-        <div>contactInfo: "View Contact Details"</div>
-        <div>skills: "View Skills Developed"</div>
-        <div>education: "View Last Education Details "</div>
-        <div>interests: "View Interests/Hobbies"</div>
-        <div>resume: "View/Download Resume"</div>
-        <div>location: "View Current Locations"</div>
-        <div>clear: "Clear the terminal"</div>
+        <div>contactInfo: &quot;View Contact Details&quot;</div>
+        <div>skills: &quot;View Skills Developed&quot;</div>
+        <div>education: &quot;View Last Education Details&quot;</div>
+        <div>interests: &quot;View Interests/Hobbies&quot;</div>
+        <div>resume: &quot;View/Download Resume&quot;</div>
+        <div>location: &quot;View Current Locations&quot;</div>
+        <div>clear: &quot;Clear the terminal&quot;</div>
       </div>
       &#125;
       <br />

@@ -22,7 +22,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { Textarea } from "./ui/textarea";
 import { toast } from "react-toastify";
 
-function checkValidName(name: string): Boolean {
+function checkValidName(name: string): boolean {
   if (name.length < 0) return false;
   if (name.length > 30) return false;
   return true;
@@ -105,7 +105,7 @@ export default function Contact({
       if (data.status === 200) {
         toast.dismiss();
         toast.success("Email Sent Successfully 🎉");
-        dialogTriggger && dialogTriggger.setIsOpen(false);
+        dialogTriggger?.setIsOpen(false);
         return;
       } else {
         toast.dismiss();
@@ -133,11 +133,11 @@ export default function Contact({
         )}
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Let's Work Together</DialogTitle>
+            <DialogTitle>Let&apos;s Work Together</DialogTitle>
             <DialogDescription>
-              Let's build something amazing together! Have a project in mind or
-              simply want to connect? Feel free to reach out. I'm eager to
-              discuss your ideas and explore potential collaborations.
+              Let&apos;s build something amazing together! Have a project in
+              mind or simply want to connect? Feel free to reach out. I&apos;m
+              eager to discuss your ideas and explore potential collaborations.
             </DialogDescription>
           </DialogHeader>
 

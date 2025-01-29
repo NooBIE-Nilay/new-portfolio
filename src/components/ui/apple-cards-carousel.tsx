@@ -32,7 +32,7 @@ export type CardType = {
   content: React.ReactNode;
   github_link?: string;
   live_link?: string;
-  noHeading?: Boolean;
+  noHeading?: boolean;
   skills: string[];
 };
 
@@ -172,7 +172,7 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null!);
-  const { onCardClose, currentIndex } = useContext(CarouselContext);
+  const { onCardClose } = useContext(CarouselContext);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
