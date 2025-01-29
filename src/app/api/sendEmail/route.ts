@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-export async function POST(req: any) {
+export async function POST(req: Request) {
   try {
     const { subject, body, email } = await req.json();
     const transporter = nodemailer.createTransport({
@@ -268,6 +268,9 @@ a[x-apple-data-detectors] {
     });
   } catch (error) {
     console.log(error);
-    return NextResponse.json({ message: "Failed to Send Email", status: 500 });
+    return NextResponse.json({
+      message: "Failed to Send Email",
+      status: 500,
+    });
   }
 }
