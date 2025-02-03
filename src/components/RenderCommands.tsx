@@ -108,7 +108,7 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           inputMode="text"
-          autoCapitalize="off"
+          autoCapitalize="none"
           dir="ltr"
         />
         <span
