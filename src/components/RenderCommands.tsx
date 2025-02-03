@@ -31,8 +31,8 @@ export default function RenderCommands({ inputRef }: RenderCommandsProps) {
   useEffect(() => {
     if (terminalWindowRef.current) {
       //@ts-ignore
-      terminalWindowRef?.current.scrollTop =
-        terminalWindowRef?.current.scrollHeight;
+      terminalWindowRef.current.scrollTop =
+        terminalWindowRef.current.scrollHeight;
     }
   }, [currentCommands]);
   const TerminalCommands = {
