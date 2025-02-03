@@ -17,8 +17,8 @@ export const data = {
       link: "https://github.com/NooBIE-Nilay",
     },
     x_twitter: {
-      username: "",
-      link: "",
+      username: "nilaystwt",
+      link: "https://x.com/nilaystwt",
     },
   },
   resume: {
@@ -62,7 +62,7 @@ export const data = {
     },
     old_portfolio: {
       github: "https://github.com/NooBIE-Nilay/nilay-portfolio",
-      live: "https://nilaycodes.in/",
+      live: "https://old.nilaycodes.in/",
       stack: [
         "Next.Js",
         "React.Js",
