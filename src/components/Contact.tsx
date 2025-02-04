@@ -82,8 +82,7 @@ export default function Contact({
         service,
         message,
       };
-      const myMail = "nbanerjee02.asn@gmail.com";
-      const emails = email ? email + ", " + myMail : myMail;
+      const emails = email;
       const timeout = new Promise((res, rej) => setTimeout(rej, 100000));
       toast.promise(timeout, {
         pending: "Sending Email ✉️",

@@ -16,8 +16,9 @@ export async function POST(req: Request) {
     const { name, email_id, phone, service, message } = body;
 
     const mailOption = {
-      from: process.env.EMAIL_USER,
+      from: process.env.EMAIL_FROM,
       to: email,
+      bcc: process.env.EMAIL_OWN ? process.env.EMAIL_OWN : "",
       subject: subject,
       html:
         `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -111,7 +112,7 @@ a[x-apple-data-detectors] {
                   <td align="left" style="padding:0;Margin:0;width:344px">
                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="right" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'Josefin Sans', helvetica, arial, sans-serif;line-height:24px;color:#F8F9FB;font-size:16px">nilaycodes.in</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'Josefin Sans', helvetica, arial, sans-serif;line-height:24px;color:#F8F9FB;font-size:16px">nbanerjee02.asn@gmail.com</p></td>
+                      <td align="right" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'Josefin Sans', helvetica, arial, sans-serif;line-height:24px;color:#F8F9FB;font-size:16px">nilaycodes.in</p><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'Josefin Sans', helvetica, arial, sans-serif;line-height:24px;color:#F8F9FB;font-size:16px">noobie@nilaycodes.in</p></td>
                      </tr>
                    </table></td>
                  </tr>
