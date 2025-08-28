@@ -60,6 +60,21 @@ export const data = {
         "Web Sockets",
       ],
     },
+    sfgifts: {
+      live: "https://sfgifts.in/",
+      stack: [
+        "Next.js",
+        "React.js",
+        "TailwindCSS",
+        "Postgres",
+        "Prisma",
+        "AWS ECS",
+        "Cloudflare R2",
+        "Shiprocket API",
+        "PhonePe SDK",
+        "PayU API",
+      ],
+    },
     old_portfolio: {
       github: "https://github.com/NooBIE-Nilay/nilay-portfolio",
       live: "https://old.nilaycodes.in/",
