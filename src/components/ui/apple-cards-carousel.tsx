@@ -256,12 +256,21 @@ export const Card = ({
         >
           <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
           <div className="relative z-40 p-4">
-            <div
-              className={`${
-                card.live_link ? "bg-green-500" : "bg-purple-600"
-              } absolute right-0 top-0 px-2 py-1 rounded`}
-            >
-              {card.live_link ? "Live" : "WIP"}
+            <div className="absolute top-1 right-0 flex gap-2">
+              <span
+                className={` uppercase ${
+                  card.type === "freelance" ? "bg-accent/85" : "bg-green-600/85"
+                } py-1 px-2 rounded text-white text-sm md:text-base font-medium font-sans text-left inline ml-4 `}
+              >
+                {card.type}
+              </span>
+              <span
+                className={`${
+                  card.live_link ? "bg-green-600/85" : "bg-purple-600/85"
+                } px-2 py-1 rounded`}
+              >
+                {card.live_link ? "Live" : "WIP"}
+              </span>
             </div>
             <motion.p
               layoutId={layout ? `category-${card.category}` : undefined}
@@ -269,14 +278,7 @@ export const Card = ({
             >
               {card.category}
             </motion.p>
-            <motion.p
-              layoutId={layout ? `category-${card.type}` : undefined}
-              className={` uppercase ${
-                card.type === "freelance" ? "bg-accent/65" : "bg-green-600/65"
-              } py-1 px-2 rounded text-white text-sm md:text-base font-medium font-sans text-left inline ml-4 `}
-            >
-              {card.type}
-            </motion.p>
+
             <motion.p
               layoutId={layout ? `title-${card.title}` : undefined}
               className="text-white text-xl md:text-2xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-1"

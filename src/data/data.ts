@@ -6,7 +6,7 @@ export const data = {
   first_name: "Nilay",
   location: "Durgapur, West Bengal",
   contact_info: {
-    email: "nilay.dev@icloud.com",
+    email: "nbanerjee02.asn@gmail.com",
     phone: "+91 8167588098",
     linkedin: {
       username: "nilay-banerjee",
@@ -46,6 +46,7 @@ export const data = {
     "Docker",
     "Github",
     "NGINX",
+    "Cloudflare",
   ],
   project_links: {
     twist_tac_toe: {
@@ -84,6 +85,34 @@ export const data = {
         "TailwindCSS",
         "NodeMailer",
         "Framer Motion",
+      ],
+    },
+    flowSketch: {
+      github: "https://github.com/NooBIE-Nilay/flowSketch",
+      stack: [
+        "Next.Js",
+        "React.Js",
+        "Express.js",
+        "PostgreSQL",
+        "Prisma ORM",
+        "TailwindCSS",
+        "WS API",
+        "HTML Canvas",
+        "Roughjs",
+      ],
+    },
+    charcha: {
+      github: "https://github.com/NooBIE-Nilay/p2p-cast",
+      stack: [
+        "Next.Js",
+        "React.Js",
+        "Express",
+        "MediaRecorderAPI",
+        "WebRTC",
+        "SFU",
+        "TailwindCSS",
+        "peerJs",
+        "Socket.io",
       ],
     },
   },

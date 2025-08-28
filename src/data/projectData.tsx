@@ -2,10 +2,13 @@ import TwistTacToe from "@/components/ProjectComponents/TwistTacToe";
 import x_o from "@/assets/o_x.gif";
 import sfgifts from "@/assets/sfgifts-prod.jpeg";
 import old_portfolio from "@/assets/portfolio.gif";
+import wip from "@/assets/wip.jpeg";
 import { CardType } from "@/components/ui/apple-cards-carousel";
 import OldPortfolio from "@/components/ProjectComponents/OldPortfolio";
 import { data } from "./data";
 import SignatureFactory from "@/components/ProjectComponents/SignatureFactory";
+import Charcha from "@/components/ProjectComponents/Charcha";
+import FlowSketch from "@/components/ProjectComponents/FlowSketch";
 export const ProjectDetails: CardType[] = [
   {
     category: "Full Stack",
@@ -35,5 +38,23 @@ export const ProjectDetails: CardType[] = [
     github_link: data.project_links.old_portfolio.github,
     live_link: data.project_links.old_portfolio.live,
     skills: data.project_links.twist_tac_toe.stack,
+  },
+  {
+    type: "project",
+    category: "Full Stack",
+    title: "FlowSketch",
+    src: wip,
+    content: <FlowSketch />,
+    github_link: data.project_links.flowSketch.github,
+    skills: data.project_links.flowSketch.stack,
+  },
+  {
+    type: "project",
+    category: "Full Stack",
+    title: "Charcha",
+    src: wip,
+    content: <Charcha />,
+    github_link: data.project_links.charcha.github,
+    skills: data.project_links.charcha.stack,
   },
 ];
